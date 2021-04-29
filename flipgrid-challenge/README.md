@@ -9,3 +9,6 @@
 - [ ] Instructions for how to run project
 
 
+# Sprint checklist
+- [ ] Host on Netlify
+- [ ] Create Figma file
