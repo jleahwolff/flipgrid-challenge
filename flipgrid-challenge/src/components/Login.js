@@ -12,15 +12,35 @@ function Login(){
         </p>
         <div className='form'>
             <form>
-            <label htmlFor='fNameInput'>First Name</label>
+            <div className='form-input'>
+                <label htmlFor='fNameInput'>First Name</label>
+                <input
+                    className='input' 
+                    type='text'
+                    placeholder=''
+                    id='fNameInput'
+                    name='fname'
+                    >
+                    </input>
+                </div>
+                <label htmlFor='emailInput'>Email Address</label>
             <input 
                 type='text'
                 placeholder=''
-                id='fNameInput'
-                name='fname'
+                id='emailInput'
+                name='email'
                 >
-                    
                 </input>
+                <label htmlFor='passInput'>Password</label>
+            <input 
+                type='text'
+                placeholder=''
+                id='passInput'
+                name='pass'
+                >
+                </input>
+            <button type='submit'>Submit</button>
+
                 </form>
         </div>
         </div>
