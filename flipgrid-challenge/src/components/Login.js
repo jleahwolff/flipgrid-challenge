@@ -8,36 +8,17 @@ import { useHistory } from 'react-router-dom';
 // Form validation - errors created if requirements not met
 const SignupSchema = Yup.object().shape({
 firstName: Yup.string()
-    .min(1, 'Name must be at least 1 character long.')
-    .required('First name required'),
+    .required('First name required.'),
 password: Yup.string()
     .min(2, 'Password must be 6 characters long.')
     .max(20, 'Password is too long. Max 20 characters.')
-    .required('Password is required'),
-email: Yup.string().email('Valid email required').required('Valid email required'),
+    .required('Password is required.'),
+email: Yup.string().email('Valid email required.').required('Valid email required.'),
 });
-
-
-// Pushes us to the Success Page after successful login
-// const OnSuccess = (e) => {
-    //     console.log('running');
-    //     // e.preventDefault();
-    //     const history = useHistory();
-    //     history.push('/success')
-    //     alert('success');
-    // };
-const HandleSubmit = (values, actions) => {
-    actions.setSubmitting(true)
-    console.log(values)
-    console.log(actions)
-    
-
-}
 
 const Login = ({userInfo, setUserInfo}) => {
 
     const history  = useHistory();
-    console.log(userInfo);
 
     return(
     <div className='login-box'>
@@ -54,9 +35,8 @@ const Login = ({userInfo, setUserInfo}) => {
     initialValues={userInfo}
     validationSchema={SignupSchema}
     onSubmit={(values, actions) => {
-        HandleSubmit(values, actions)
+        actions.setSubmitting(true)
         setUserInfo(values)
-        // console.log('submitted');
         history.push('/success')
     }}>
 
@@ -69,15 +49,10 @@ const Login = ({userInfo, setUserInfo}) => {
         <div className='form-input'>
         <label className='label' htmlFor='email'>{errors.email && touched.email ? <span className='errors'>{errors.email}</span>: 'Email'}</label>
         {errors.email && touched.email ? <Field name="email" type="email" className='errors-input'/> : <Field name="email" type="email" className='input'/>}
-        {/* {errors.email && touched.email ? 
-        <div className='errors'>{errors.email}</div> : null} */}
         </div>
         <div className='form-input'>
-        <label className='label' htmlFor='password'>Password</label>
-        <Field name="password" className='input' type='password'/>
-        {/* {errors.password && touched.password ? (
-            <div className='errors'>{errors.password}</div>
-        ) : null} */}
+        <label className='label' htmlFor='password'>{errors.password && touched.password ? <span className='errors'>{errors.password}</span>: 'Password'}</label>
+        {errors.password && touched.password ? <Field name="password" className='errors-input' type='password'/> : <Field name="password" className='input' type='password'/>}
         </div>
         <Button buttonType='submit' buttonText='Sign In'/>
         </Form>

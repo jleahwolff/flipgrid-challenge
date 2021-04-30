@@ -81,6 +81,8 @@ p{
 .errors{
   color: #ff3300;
   padding: .5rem 0;
+  position: relative;
+  animation: erro .5s infinite;
 }
 
 .errors-input{
@@ -91,3 +93,36 @@ p{
   box-sizing: border-box;
 }
 
+/* KEYFRAMES */
+@keyframes erro {
+  0% {transform: translateX(20px)}
+  50% {transform: translateX(-20px)}
+  100% {transform: translateX(0px)}
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px){
+.box{
+  max-width: 400px;
+}
+}
+
+@media screen and (max-width: 768px){
+  .box{
+    max-width: 300px;
+  }
+  }
+
+  @media screen and (max-width: 600px){
+    .box{
+      max-width: 250px;
+    }
+    }
+
+  @media screen and (max-width: 480px){
+    .box{
+      max-width: 200px;
+    }
+    }

@@ -4,7 +4,6 @@ import '../App.css';
 import Button from './reusableComponents/Button';
 
 function Success({userInfo}){
-    console.log('success', userInfo)
 
     return(
         <div>
