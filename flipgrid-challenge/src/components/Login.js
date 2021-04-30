@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import Button from './reusableComponents/Button';
 
 function Login(){
     return(
@@ -39,7 +40,7 @@ function Login(){
                 name='pass'
                 >
                 </input>
-            <button type='submit'>Submit</button>
+            <Button buttonType='submit' buttonText='Sign Up'/>
 
                 </form>
         </div>

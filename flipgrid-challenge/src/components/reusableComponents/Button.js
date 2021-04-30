@@ -1,7 +1,11 @@
 import React from 'react';
 
-function Success(){
+function Button({buttonText, buttonType}){
 
+
+return(
+    <button type={buttonType ? 'submit' : null}>{buttonText}</button>
+)
 }
 
-export default Success;
+export default Button;
