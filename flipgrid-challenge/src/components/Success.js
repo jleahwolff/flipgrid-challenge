@@ -13,7 +13,9 @@ function Success({userInfo}){
             </div>
             <p>
                 You have been registered for this awesome service. 
-                <br></br>Please check your email listed below for instructions.
+            </p>
+            <p>
+            Please check your email listed below for instructions.
             </p>
             <h3>
                 {userInfo.email}

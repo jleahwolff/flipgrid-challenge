@@ -27,7 +27,7 @@ const Login = ({userInfo, setUserInfo}) => {
     <h1>Signup</h1>
     </div>
     <div>
-        <p>
+        <p className='login-para'>
             Use the form below to sign up for this super awesome service. You're only a few steps away!
         </p>
         </div>
