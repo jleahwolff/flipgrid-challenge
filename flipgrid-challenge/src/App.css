@@ -40,7 +40,11 @@ h1{
 }
 
 .success-para{
-  line-height: .75;
+  line-height: .25;
+}
+
+.para-box{
+  margin: 2.5rem 0;
 }
 
 
