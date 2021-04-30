@@ -8,9 +8,9 @@ import axios from 'axios';
 
 const Login = ({values, errors, touched, status}) => {
     
-    console.log('values', values);
-    console.log('errors', errors);
-    console.log('touched', touched);
+    // console.log('values', values);
+    // console.log('errors', errors);
+    // console.log('touched', touched);
 
     // local state that holds form submission data
     const [login, setLogin] = useState([]);
