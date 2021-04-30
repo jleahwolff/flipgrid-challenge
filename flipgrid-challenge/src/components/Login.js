@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Button from './reusableComponents/Button';
 import { useHistory } from 'react-router-dom';
+import { withFormik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
+
+const Login = ({values, errors, touched, status}) => {
+    
+    console.log('values', values);
+    console.log('errors', errors);
+    console.log('touched', touched);
+
+    // local state that holds form submission data
+    const [login, setLogin] = useState([]);
+
+    useEffect(() => {
+        console.log('input has changed!', status);
+        status && setLogin(login => [...login, status]);
+    }, [status]);
 
 
+// Push the form to Success Page after form submit
+    // const history = useHistory()
 
-const Login = () => {
-    const history = useHistory()
-
-    const onSuccess = (e) => {
-        e.preventDefault();
-        history.push('/success')
-        // alert('success');
-    }
+    // const onSuccess = (e) => {
+    //     e.preventDefault();
+    //     history.push('/success')
+    //     // alert('success');
+    // }
 
     return(
         <div className='login-box'>
@@ -26,48 +42,76 @@ const Login = () => {
             </p>
         </div>
         <div className='form'>
-            <form onSubmit={onSuccess}>
+            {/* <Form onSubmit={onSuccess}> */}
+            <Form>
             <div className='form-input'>
-                <label className='label' htmlFor='fNameInput'>First Name</label>
-                <input
+                <label className='label' htmlFor='fNameInput'>First Name
+                </label>
+                <Field
                     className='input' 
                     type='text'
                     placeholder=''
-                    id='fNameInput'
+                    id='fName'
                     name='fname'
-                    >
-                    </input>
-                </div>
+                    />
+            </div>
             <div className='form-input'>
-                <label className='label' htmlFor='emailInput'>Email Address</label>
-                <input 
+                <label className='label' htmlFor='emailInput'>Email Address
+                </label>
+                <Field 
                     className='input' 
                     type='text'
                     placeholder=''
-                    id='emailInput'
+                    id='email'
                     name='email'
-                    >
-                    </input>
+                    />
                 </div>
             <div className='form-input'>
-                <label className='label' htmlFor='passInput'>Password</label>
-                <input 
+                <label className='label' htmlFor='passInput'>Password
+                </label>
+                <Field
                     className='input' 
                     type='text'
                     placeholder=''
-                    id='passInput'
+                    id='pass'
                     name='pass'
-                    >
-                    </input>
+                    />
+                    
                 </div>
             <Button buttonType='submit' buttonText='Sign Up'/>
-
-                </form>
+        </Form>
         </div>
         
-
         </div>
     )
 }
 
-export default Login;
+
+const FormikLoginForm = withFormik({
+
+    mapPropsToValues(props){
+        return {
+            fName: props.fName || '',
+            email: props.email || '',
+            pass: props.pass || ''
+        };
+    },
+
+    validationSchema: Yup.object().shape({
+        fName: Yup.string().required(),
+        email: Yup.string().required('Email is required.')
+    }),
+    handleSubmit(values, {setStatus, resetForm}) {
+        console.log('submitted', values);
+        axios
+        .post('https://reqres.in/api/users/', values)
+        .then(res => {
+            console.log('success', res);
+            setStatus(res.data);
+            resetForm();
+        })
+        .catch(err => console.log(err.response));
+    }
+})(Login);
+
+export default FormikLoginForm;
