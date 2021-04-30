@@ -1,17 +1,23 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-import FormikLoginForm from './components/Login';
+import Login from './components/NewLogin';
 import Success from './components/Success';
-import Fail from './components/Fail';
 import { NavLink, Route } from 'react-router-dom';
 
 
 
 function App() {
+
+  const [userInfo, setUserInfo] = useState({
+    firstName: '',
+    email: '',
+    password: '',
+})
+
   return (
     <div className='app'>
-      <div className="box">
-      <Route exact path='/'><FormikLoginForm/></Route>
+      <div className='box'>
+      <Route exact path='/'><Login userInfo={userInfo} setUserInfo={serUserInfo}/></Route>
       <Route path='/success'><Success/></Route>
       </div>
     </div>

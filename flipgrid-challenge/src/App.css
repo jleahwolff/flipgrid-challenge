@@ -77,3 +77,9 @@ p{
   border-radius: .25rem;
 }
 
+/* ERRORS */
+.errors{
+  color: #ff3300;
+  padding: .5rem 0;
+  font-size: .8rem;
+}
