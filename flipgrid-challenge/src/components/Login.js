@@ -3,6 +3,10 @@ import '../App.css';
 import Button from './reusableComponents/Button';
 
 function Login(){
+    const onSuccess = (e) => {
+        e.preventDefault();
+        alert('success');
+    }
     return(
         <div>
         <div className='header'>
@@ -12,7 +16,7 @@ function Login(){
             Use the form below to sign up for this super awesome service. You're only a few steps away!
         </p>
         <div className='form'>
-            <form>
+            <form onSubmit={onSuccess}>
             <div className='form-input'>
                 <label htmlFor='fNameInput'>First Name</label>
                 <input

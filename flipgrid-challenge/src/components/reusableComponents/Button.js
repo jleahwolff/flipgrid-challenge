@@ -4,7 +4,7 @@ function Button({buttonText, buttonType}){
 
 
 return(
-    <button type={buttonType ? 'submit' : null}>{buttonText}</button>
+    <button type={buttonType ? buttonType : null}>{buttonText}</button>
 )
 }
 
