@@ -1,10 +1,13 @@
 import React from 'react';
+import '../../App.css';
 
 function Button({buttonText, buttonType}){
 
 
 return(
-    <button type={buttonType ? buttonType : null}>{buttonText}</button>
+    <div className='button-box'>
+        <button className='button' type={buttonType ? buttonType : null}>{buttonText}</button>
+    </div>
 )
 }
 
