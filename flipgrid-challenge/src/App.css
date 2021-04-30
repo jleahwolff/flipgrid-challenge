@@ -81,5 +81,13 @@ p{
 .errors{
   color: #ff3300;
   padding: .5rem 0;
-  font-size: .8rem;
 }
+
+.errors-input{
+  border-radius: .25rem;
+  padding: .5rem;
+  border: 1px solid #ff3300;
+  /* outline: none; */
+  box-sizing: border-box;
+}
+

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import Login from './components/NewLogin';
+import Login from './components/Login';
 import Success from './components/Success';
-import { NavLink, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 
@@ -17,8 +17,8 @@ function App() {
   return (
     <div className='app'>
       <div className='box'>
-      <Route exact path='/'><Login userInfo={userInfo} setUserInfo={serUserInfo}/></Route>
-      <Route path='/success'><Success/></Route>
+      <Route exact path='/'><Login userInfo={userInfo} setUserInfo={setUserInfo}/></Route>
+      <Route path='/success'><Success userInfo={userInfo}/></Route>
       </div>
     </div>
   );
