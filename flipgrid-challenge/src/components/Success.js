@@ -14,15 +14,15 @@ function Success({userInfo}){
             <div className='para-box'>
             <p className='success-para'>
                 You have been registered for this awesome service. 
-            </p>
-            <p className='success-para'>
             Please check your email listed below for instructions.
             </p>
+            
+            
             </div>
             <h3>
                 {userInfo.email}
             </h3>
-            <Button buttonType='signup' buttonText='Sign Up'/>
+            <Button buttonType='signin' alt='Sign In' buttonText='Sign In'/>
         </div>
     )
 }

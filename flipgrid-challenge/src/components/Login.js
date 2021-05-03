@@ -44,17 +44,17 @@ const Login = ({userInfo, setUserInfo}) => {
         <Form className='form'>
         <div className='form-input'>
         <label className='label' htmlFor='firstName'>{errors.firstName && touched.firstName ? <span className='errors'>{errors.firstName}</span> : 'First Name'}</label>
-        {errors.firstName && touched.firstName ? <Field name='firstName' className='errors-input'/> : <Field name="firstName" className='input'/>}
+        {errors.firstName && touched.firstName ? <Field name='firstName' alt='Name must include at least one character' className='errors-input'/> : <Field name="firstName" alt='Name' className='input'/>}
         </div>
         <div className='form-input'>
         <label className='label' htmlFor='email'>{errors.email && touched.email ? <span className='errors'>{errors.email}</span>: 'Email'}</label>
-        {errors.email && touched.email ? <Field name="email" type="email" className='errors-input'/> : <Field name="email" type="email" className='input'/>}
+        {errors.email && touched.email ? <Field name="email" type="email" alt='Must be a valid email address' className='errors-input'/> : <Field name="email" alt='Email' type="email" className='input'/>}
         </div>
         <div className='form-input'>
         <label className='label' htmlFor='password'>{errors.password && touched.password ? <span className='errors'>{errors.password}</span>: 'Password'}</label>
-        {errors.password && touched.password ? <Field name="password" className='errors-input' type='password'/> : <Field name="password" className='input' type='password'/>}
+        {errors.password && touched.password ? <Field name="password" alt='Error, password must be between 6 and 20 characters long' className='errors-input' type='password'/> : <Field name="password" alt='Password' className='input' type='password'/>}
         </div>
-        <Button buttonType='submit' buttonText='Sign In'/>
+        <Button buttonType='submit' buttonText='Sign Up' alt='Sign Up'/>
         </Form>
     )}
     </Formik>

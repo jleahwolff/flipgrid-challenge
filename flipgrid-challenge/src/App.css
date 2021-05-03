@@ -40,7 +40,7 @@ h1{
 }
 
 .success-para{
-  line-height: .25;
+  line-height: 1.5;
 }
 
 .para-box{
@@ -85,6 +85,15 @@ h1{
   font-weight: 600;
   color: white;
   border-radius: .25rem;
+  -webkit-transition: background-color .5s ease-out;
+  -moz-transition: background-color .5s ease-out;
+  -o-transition: background-color .5s ease-out;
+  transition: background-color .5s ease-out;
+}
+
+.button:hover{
+  background-color: #ad1500;
+  cursor: pointer;
 }
 
 /* ERRORS */
@@ -92,22 +101,22 @@ h1{
   color: #ff3300;
   padding: .5rem 0;
   position: relative;
-  animation: erro .5s infinite;
 }
 
 .errors-input{
   border-radius: .25rem;
   padding: .5rem;
   border: 1px solid #ff3300;
-  /* outline: none; */
+  animation: erro .25s 2;
+  animation-timing-function: ease-in-out;
   box-sizing: border-box;
 }
 
 /* KEYFRAMES */
 @keyframes erro {
-  0% {transform: translateX(20px)}
-  50% {transform: translateX(-20px)}
-  100% {transform: translateX(0px)}
+  0% {transform: translateX(5px)}
+  50% {transform: translateX(-5px)}
+  100% {transform: translateX(5px)}
 }
 
 
