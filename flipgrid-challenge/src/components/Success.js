@@ -22,7 +22,7 @@ function Success({userInfo}){
             <h3>
                 {userInfo.email}
             </h3>
-            <Button buttonType='signin' alt='Sign In' buttonText='Sign In'/>
+            <Button buttonType='submit' alt='Sign In' buttonText='Sign In'/>
         </div>
     )
 }
